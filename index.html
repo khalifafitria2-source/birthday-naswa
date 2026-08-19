@@ -1,0 +1,1070 @@
+from fitri <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Naswa ♡</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #08070b;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 220, 180, 0.13),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(190, 160, 255, 0.08),
+      transparent 30%
+    ),
+    #08070b;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(42px, 11vw, 80px);
+  font-weight: 400;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(30px, 8vw, 55px);
+  font-weight: 400;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.btn {
+  margin-top: 32px;
+  padding: 14px 25px;
+  border-radius: 999px;
+
+  color: white;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.3);
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.4;
+
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.4);
+  }
+}
+
+/* =========================
+   BIRTHDAY CARD
+========================= */
+
+.card {
+  margin: 30px auto 0;
+  max-width: 570px;
+
+  padding: 30px 25px;
+
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.13);
+
+  background: rgba(255,255,255,0.045);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.35);
+}
+
+.wish {
+  font-size: 18px;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+.signature {
+  margin-top: 18px;
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* =========================
+   ENVELOPES
+========================= */
+
+.envelopes {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+
+  max-width: 620px;
+  margin: 30px auto 0;
+}
+
+.env {
+  min-height: 150px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.13);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.025)
+    );
+
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  transition: 0.35s;
+}
+
+.env:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.env.opened {
+  opacity: 0.45;
+  transform: scale(0.97);
+}
+
+.env .icon {
+  font-size: 34px;
+}
+
+.env small {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.wish-popup {
+  margin: 22px auto 0;
+
+  max-width: 580px;
+  min-height: 90px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+
+  background: rgba(255,255,255,0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================
+   SANGWON REVEAL
+========================= */
+
+.reveal-wrap {
+ width: min(78vw, 350px);
+
+  margin: 30px auto 0;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.55);
+
+  transition:
+    transform 0.8s cubic-bezier(.2,.8,.2,1),
+    filter 0.5s;
+}
+
+.reveal-wrap:hover .photo {
+  transform: scale(1.02);
+}
+
+.tap {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform: translateX(-50%);
+
+  padding: 10px 17px;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.58);
+
+  backdrop-filter: blur(8px);
+
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.hint {
+  margin-top: 18px;
+
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* =========================
+   VIDEO MODAL
+========================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.94);
+
+  z-index: 100;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+}
+
+.video-modal.show {
+  display: flex;
+}
+
+.video-box {
+  width: min(100%,900px);
+
+  position: relative;
+}
+
+video {
+  width: 100%;
+  max-height: 88vh;
+
+  border-radius: 14px;
+
+  background: black;
+
+  display: block;
+}
+
+.close {
+  position: absolute;
+
+  right: 5px;
+  top: -48px;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  background: rgba(0,0,0,0.6);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 20px;
+}
+
+.final-note {
+  margin-top: 15px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  opacity: 0.65;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.progress {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  height: 2px;
+  width: 0;
+
+  background: white;
+
+  z-index: 200;
+
+  transition: 0.4s;
+}
+
+.back {
+  position: fixed;
+
+  bottom: 16px;
+  left: 16px;
+
+  z-index: 50;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  opacity: 0.4;
+
+  cursor: pointer;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music {
+  position: fixed;
+
+  right: 16px;
+  bottom: 16px;
+
+  z-index: 50;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  background: rgba(0,0,0,0.35);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:520px) {
+
+  .screen {
+    padding: 22px 18px;
+  }
+
+  .envelopes {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+  }
+
+  .env {
+    min-height: 90px;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    padding: 16px 20px;
+  }
+
+  .env .icon {
+    font-size: 28px;
+  }
+
+  .wish-popup {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="screen active" id="s1">
+
+  <div class="stars" id="stars"></div>
+
+  <div class="content">
+
+    <div class="eyebrow">
+      A little surprise for you
+    </div>
+
+    <h1>
+      For Naswa ♡
+    </h1>
+
+    <p class="subtitle">
+      Take a little moment.<br>
+      There's something waiting for you.
+    </p>
+
+    <button class="btn" onclick="go(2)">
+      Open your gift
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="screen" id="s2">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      Chapter one
+    </div>
+
+    <h2>
+      Happy Birthday, Naswa ♡
+    </h2>
+
+    <div class="card">
+
+      <div class="wish">
+
+        May this new chapter bring you
+        softer days, beautiful memories,
+        and more reasons to smile.
+
+      </div>
+
+      <div class="signature">
+        with a little love, just for you ♡
+      </div>
+
+    </div>
+
+    <button class="btn" onclick="go(3)">
+      I have more wishes →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+<section class="screen" id="s3">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      A few little things
+    </div>
+
+    <h2>
+      Open them one by one ♡
+    </h2>
+
+    <div class="envelopes">
+
+      <button
+        class="env"
+        onclick="openWish(this,0)"
+      >
+
+        <span class="icon">
+          💌
+        </span>
+
+        <small>
+          A little wish
+        </small>
+
+      </button>
+
+
+      <button
+        class="env"
+        onclick="openWish(this,1)"
+      >
+
+        <span class="icon">
+          🌷
+        </span>
+
+        <small>
+          For your next chapter
+        </small>
+
+      </button>
+
+
+      <button
+        class="env"
+        onclick="openWish(this,2)"
+      >
+
+        <span class="icon">
+          ✨
+        </span>
+
+        <small>
+          One last thing...
+        </small>
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="wish-popup"
+      id="wishPopup"
+    >
+      Choose an envelope.
+    </div>
+
+
+    <button
+      class="btn"
+      id="nextBtn"
+      style="display:none"
+      onclick="go(4)"
+    >
+      There's one last surprise →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="screen" id="s4">
+
+  <div class="stars" id="stars2"></div>
+
+  <div class="content">
+
+    <div class="eyebrow">
+      The last one
+    </div>
+
+    <h2>
+      I saved this for you.
+    </h2>
+
+    <p class="subtitle">
+      Some surprises are better
+      when you discover them yourself.
+    </p>
+
+
+    <div
+      class="reveal-wrap"
+      onclick="openVideo()"
+    >
+
+      <!--
+        GANTI:
+        sangwon.jpg
+
+      -->
+
+      <img
+        class="photo"
+        src="sangwon.jpg"
+        alt="A little surprise for Naswa"
+      >
+
+      <div class="tap">
+        Tap me ♡
+      </div>
+
+    </div>
+
+
+    <p class="hint">
+      I think this one is for you.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEO POPUP
+========================= -->
+
+<div
+  class="video-modal"
+  id="videoModal"
+>
+
+  <div class="video-box">
+
+    <button
+      class="close"
+      onclick="closeVideo()"
+    >
+      ×
+    </button>
+
+
+    <!--
+      GANTI:
+      birthday-surprise.mp4
+
+     
+    -->
+
+    <video
+      id="birthdayVideo"
+      controls
+      playsinline
+      preload="metadata"
+    >
+
+      <source
+        src="birthday-surprise.mp4"
+        type="video/mp4"
+      >
+
+      Your browser does not support video playback.
+
+    </video>
+
+
+    <div class="final-note">
+      Happy Birthday, Naswa ♡
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<button
+  class="music"
+  id="musicBtn"
+  onclick="toggleMusic()"
+>
+  ♫
+</button>
+
+
+<button
+  class="back"
+  onclick="back()"
+>
+  ← back
+</button>
+
+
+<!--
+  OPTIONAL BACKGROUND MUSIC
+
+   birthday-music.mp3
+
+  
+-->
+
+<audio
+  id="bgMusic"
+  loop
+>
+
+  <source
+    src="birthday-music.mp3"
+    type="audio/mpeg"
+  >
+
+</audio>
+
+
+<script>
+
+/* =========================
+   WISHES
+========================= */
+
+const wishes = [
+
+  "I hope you always have people around you who make ordinary days feel a little more special. ♡",
+
+  "May this next chapter be kind to you — full of growth, laughter, beautiful places, and moments you'll want to remember.",
+
+  "Okay... this is the one I really wanted you to see. There's a little surprise waiting behind that photo. ✨"
+
+];
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+let current = 1;
+
+let opened = 0;
+
+
+function go(number) {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById("s" + number)
+    .classList.add("active");
+
+
+  current = number;
+
+
+  document
+    .getElementById("progress")
+    .style.width =
+      ((number - 1) / 3 * 100) + "%";
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+ BACK BUTTON
+========================= */
+
+function back() {
+
+  if (current > 1) {
+
+    go(current - 1);
+
+  }
+
+}
+
+
+/* =========================
+   OPEN WISH
+========================= */
+
+function openWish(element, index) {
+
+  if (!element.classList.contains("opened")) {
+
+    element.classList.add("opened");
+
+    opened++;
+
+  }
+
+
+  document
+    .getElementById("wishPopup")
+    .textContent = wishes[index];
+
+
+  if (opened >= 3) {
+
+    document
+      .getElementById("nextBtn")
+      .style.display = "inline-block";
+
+  }
+
+}
+
+
+/* =========================
+   OPEN VIDEO
+========================= */
+
+function openVideo() {
+
+  const modal =
+    document.getElementById("videoModal");
+
+  const video =
+    document.getElementById("birthdayVideo");
+
+
+  modal.classList.add("show");
+
+
+  video.currentTime = 0;
+
+
+  video.play().catch(() => {});
+
+}
+
+
+/* =========================
+   CLOSE VIDEO
+========================= */
+
+function closeVideo() {
+
+  const modal =
+    document.getElementById("videoModal");
+
+  const video =
+    document.getElementById("birthdayVideo");
+
+
+  video.pause();
+
+  modal.classList.remove("show");
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic() {
+
+  const music =
+    document.getElementById("bgMusic");
+
+  const button =
+    document.getElementById("musicBtn");
+
+
+  if (music.paused) {
+
+    music.play().catch(() => {});
+
+    button.textContent = "❚❚";
+
+  }
+
+  else {
+
+    music.pause();
+
+    button.textContent = "♫";
+
+  }
+
+}
+
+
+/* =========================
+   STAR GENERATOR
+========================= */
+
+function addStars(id, amount = 45) {
+
+  const container =
+    document.getElementById(id);
+
+
+  for (let i = 0; i < amount; i++) {
+
+    const star =
+      document.createElement("span");
+
+
+    star.className = "star";
+
+
+    star.style.left =
+      Math.random() * 100 + "%";
+
+
+    star.style.top =
+      Math.random() * 100 + "%";
+
+
+    star.style.animationDelay =
+      Math.random() * 3 + "s";
+
+
+    container.appendChild(star);
+
+  }
+
+}
+
+
+addStars("stars");
+
+addStars("stars2");
+
+
+/* =========================
+   ESCAPE = CLOSE VIDEO
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+
+      closeVideo();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
